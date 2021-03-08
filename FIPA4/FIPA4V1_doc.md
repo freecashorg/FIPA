@@ -16,13 +16,15 @@ TXid:
 
 [Introduction](#introduction)
 
-[General rules of FIPA type protocols](#general-rules-of-fipa-type-protocols)
+[General rules of FIPA type protocols](#general-rules-of-fipa-protocols)
 
 [Rules specific to this protocol](#rules-specific-to-this-protocol)
 
 [CoinDays of an UTXO](#coindays-of-a-utxo)
 
 [CoinDays of an CID](#coindays-of-an-cid)
+
+[The consumption of CoinDays](#the-consumption-of-coindays)
 
 
 ## Introduction
@@ -49,21 +51,33 @@ PreVersionHash:"unknown"
 
 1. CoinDays can be simply understood as: (quantity of coins) multiplied by (holding time).
 2. Exact calculation. <br>
-  The precision of FCH is 0.00000001FCH, or 1 Satoshi. 
+  The precision of FCH is 0.00000001 FCH, or 1 Satoshi. 
 
 ```python
     # e.g. : 987654321 Satoshi = 9.87 Coins
-    Coins = (floor(Satoshi of UTXO / 1000000)) /100.0
+    Coins = (SatoshiOfUTXO / 1000000) /100.0
 ```
 
-  The Timestamp in the blockhead is seconds from Unix Epoch, and we need to format it to Days. We define the calculation as follows:
+  The Timestamp in the blockheader is seconds from Unix Epoch, and we need to format it to Days. We define the calculation as follows:
     
-```python
+```
     Days =  (generatedTimestamp - spentTimestamp) / (24 * 3600)
-    generatedTimestamp = Timestamp of blockHead when UTXO is generated
-    spentTimestamp = Timestamp of blockHead when the UTXO is spent
+    generatedTimestamp = Timestamp of blockHeader when UTXO is generated
+    spentTimestamp = Timestamp of blockHeader when the UTXO is spent
 ```
 
 ## CoinDays of a UTXO
 
+```
+    CoinDays of a UTXO =  CoinsOfUTXO * DaysOfUTXO
+```
+
 ## CoinDays of an CID
+   An CID may has more than one UTXOs. The CoinDays of an CID is the sum of all its UTXO's CoinDays.
+
+```
+    sum(CoinDays of a UTXO)
+```
+
+## The consumption of CoinDays
+
