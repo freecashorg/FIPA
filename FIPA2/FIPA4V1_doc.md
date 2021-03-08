@@ -1,5 +1,5 @@
 ```
-FIPA2: CoinDays
+FIPA4: CoinDays
 Version: 1
 Language: en-US
 Author: Deisler-JJ_Sboy
@@ -10,7 +10,7 @@ File hash: "unknown"
 TXid: 
 ```
 
-# FIPA2_CoinDays(en-US)
+# FIPA4_CoinDays(en-US)
 
 ## Contents
 
@@ -30,7 +30,7 @@ TXid:
 ```
 
 ProtocolType: FIPA
-SerialNumber: 2
+SerialNumber: 4
 ProtocolName: CoinDays
 VersionNumber: 1
 Description : CoinDays is an indicator for FCH holders.
