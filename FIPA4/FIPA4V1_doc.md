@@ -16,13 +16,13 @@ TXid:
 
 [Introduction](#introduction)
 
-[General rules of FEIP type protocols](#general-rules-of-feip-type-protocols)
+[General rules of FIPA type protocols](#general-rules-of-fipa-type-protocols)
 
 [Rules specific to this protocol](#rules-specific-to-this-protocol)
 
-[CoinDays of an UTXO](#CoinDays-of-an-UTXO)
+[CoinDays of an UTXO](#coindays-of-a-utxo)
 
-[CoinDays of an CID](#CoinDays-of-an-CID)
+[CoinDays of an CID](#coindays-of-an-cid)
 
 
 ## Introduction
@@ -41,7 +41,7 @@ PreVersionHash:"unknown"
 
 ```
 
-## General rules of FEIP FIPA protocols
+## General rules of FIPA protocols
 
 
 
@@ -58,7 +58,7 @@ PreVersionHash:"unknown"
 
   The Timestamp in the blockhead is seconds from Unix Epoch, and we need to format it to Days. We define the calculation as follows:
     
-```
+```python
     Days =  (generatedTimestamp - spentTimestamp) / (24 * 3600)
     generatedTimestamp = Timestamp of blockHead when UTXO is generated
     spentTimestamp = Timestamp of blockHead when the UTXO is spent
